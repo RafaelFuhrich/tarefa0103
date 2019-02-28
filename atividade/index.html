@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="comando.js"></script>
 <body>
 
 <div ng-app="">
@@ -15,6 +16,23 @@
 
       
       <h1>Lista de {{titulo}}</h1>
+    </div>
+    <div ng-controller="TodoListController as todoList" id="lista">
+      <span>Faltam {{todoList.remaining()}} de {{todoList.todos.length}} atividades</span>
+      [ <a href="" ng-click="todoList.archive()"><b>concluir selecionadas</b></a> ]
+      <ul class="unstyled">
+        <li ng-repeat="todo in todoList.todos">
+          <label class="checkbox">
+            <input type="checkbox" ng-model="todo.done">
+            <span class="done-{{todo.done}}">{{todo.text}}</span>
+          </label>
+        </li>
+      </ul>
+      <form ng-submit="todoList.addTodo()">
+        <input type="text" ng-model="todoList.todoText"  size="30"
+               placeholder="Adicione uma atividade aqui">
+        <input class="btn-primary" type="submit" value="Adicionar">
+      </form>
     </div>
 
 </div>
