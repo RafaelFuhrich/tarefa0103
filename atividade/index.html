@@ -5,9 +5,17 @@
 
 <div ng-app="">
  
-<p>Insira um texto na caixa:</p>
-<p>Nome : <input type="text" ng-model="nome" placeholder="Escreva seu nome aqui"></p>
-<h1>Olá {{nome}}</h1>
+<div>
+      <div id="aba">
+      <label>Titulo da lista:</label>
+      <input type="text" ng-model="titulo" placeholder="Insira o titulo aqui">
+      </div>
+
+      <p><br>O objetivo desta página é auxiliá-lo com a organização de suas atividades</p>
+
+      
+      <h1>Lista de {{titulo}}</h1>
+    </div>
 
 </div>
 
